@@ -114,6 +114,15 @@ var InfiniteScroll = (function(_Component) {
       },
     },
     {
+      key: 'componentWillReceiveProps',
+      value: function componentWillReceiveProps(nextProps) {
+        if (nextProps.hasMore === false) {
+          this.detachScrollListener();
+          this.detachMousewheelListener();
+        }
+      },
+    },
+    {
       key: 'componentWillUnmount',
       value: function componentWillUnmount() {
         this.detachScrollListener();
